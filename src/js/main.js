@@ -63,6 +63,15 @@ function fillAddress() {
 
             if (component.types.indexOf('administrative_area_level_1') !== -1) {
                 place_components.state = component.short_name;
+
+                /**/
+                try {
+                    document.querySelector('#select2-billing_state-container').innerText = component.long_name;
+                    document.querySelector('#select2-billing_state-container').setAttribute('title', component.long_name);
+                } catch (e) {
+                    console.warn(e);
+                }
+                /**/
             }
 
             if (component.types.indexOf('postal_code') !== -1) {
